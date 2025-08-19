@@ -4,7 +4,10 @@ from dotenv import load_dotenv
 from langchain.agents import initialize_agent, Tool, AgentType
 from langchain.memory import ConversationBufferMemory
 from langchain.schema import HumanMessage, AIMessage
-from langchain_groq import ChatGroq
+from langchain_community.llms import Ollama
+from langchain_community.chat_models import ChatOllama
+# Alternativa con OpenAI-compatible API
+from langchain_community.chat_models import ChatOpenAI
 from utils import (
     web_search_tool,
     calculator_tool,
@@ -30,14 +33,14 @@ def initialize_llm():
     Se usa cache para evitar reinicializar el modelo en cada interacción.
     """
     try:
-        # Configurar el LLM con Groq (que soporta Llama3-8b-8192)
-        llm = ChatGroq(
-            groq_api_key=os.getenv("GROQ_API_KEY"),
-            model_name="llama3-8b-8192",
+        # Opción 1: Usar Groq como OpenAI-compatible
+        llm = ChatOpenAI(
+            base_url="https://api.groq.com/openai/v1",
+            api_key=os.getenv("GROQ_API_KEY"),
+            model="llama3-8b-8192",
             temperature=0.7,
             max_tokens=1024,
-            timeout=30,
-            max_retries=2
+            timeout=30
         )
         return llm
     except Exception as e:
