@@ -1,27 +1,21 @@
 # Dependencias principales
-streamlit==1.29.0
-langchain==0.1.0
-langchain-groq==0.0.1
-langchain-community==0.0.10
+streamlit>=1.28.0,<2.0.0
+langchain>=0.1.0,<0.3.0
+langchain-groq>=0.1.0,<1.0.0
+langchain-community>=0.0.20,<1.0.0
 
 # Variables de entorno
-python-dotenv==1.0.0
+python-dotenv>=1.0.0,<2.0.0
 
 # Utilidades para herramientas
-requests==2.31.0
-google-api-python-client==2.110.0
+requests>=2.31.0,<3.0.0
+google-api-python-client>=2.100.0,<3.0.0
 
 # Dependencias adicionales de LangChain
-tiktoken==0.5.2
-openai==1.6.1
-faiss-cpu==1.7.4
+tiktoken>=0.5.0,<1.0.0
 
 # Utilidades matemáticas y de fecha
-python-dateutil==2.8.2
+python-dateutil>=2.8.0,<3.0.0
 
 # Para manejo de JSON y parsing
-pydantic==2.5.2
-pydantic-core==2.14.5
-
-# Dependencias de sistema (si son necesarias)
-typing-extensions==4.8.0
+pydantic>=2.0.0,<3.0.0
